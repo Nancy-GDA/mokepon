@@ -5,19 +5,31 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mokepon</title>
+    <link rel="stylesheet" href="./style.css" >
     <script src="./js/mokepon.js"></script>
+    
 </head>
 <body>
-    <h1>Mokepon🔥💧🍃</h1>
-    <section id="seleccion-mascotas">
-        <h2>Elige tu mascota:</h2>
-        <p>
-            <label for="charmeleon">Charmeleon</label>
-            <input type="radio" name="mokepon" id="charmeleon">
-            <label for="wartortle">Wartortle</label>
-            <input type="radio" name="mokepon" id="wartortle">
-            <label for="diglett">Diglett</label>
-            <input type="radio" name="mokepon" id="diglett">       
+    <section class="mokepon">
+    <section id="seleccion-mascotas" class="seleccionMascota">
+        <h1 id="titulo">Mokepon🔥💧🍃</h1>
+        <h2 id="eleccion-mascota">Elige tu mascota:</h2>
+        <p class="mascotas">
+            <div class="charmeleon">
+                <label for="charmeleon" class="item-mascotas">Charmeleon</label>
+                <input type="radio" name="mokepon" id="charmeleon" >
+                <img src="./imagenes/charmeleon.png" alt="chamerleon">
+            </div>
+            <div class="wartortle">
+                <label for="wartortle" class="item-mascotas">Wartortle</label>
+                <input type="radio" name="mokepon" id="wartortle">
+                <img src="./imagenes/wartortle.png" alt="wartortle">
+            </div>
+            <div class="diglett">
+                <label for="diglett" class="item-mascotas">Diglett</label>
+                <input type="radio" name="mokepon" id="diglett">  
+                <img src="./imagenes/diglett.png" alt="diglett">
+            </div>    
         </p>
         <button id="btn-seleccion">Seleccionar</button>
     </section>
@@ -34,6 +46,6 @@
     </section>
     <br>
     <button id="btn-reinicio">Reiniciar</button>
-
+    </section>
 </body>
 </html>

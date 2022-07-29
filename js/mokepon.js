@@ -5,7 +5,14 @@ let vidasEnemigo = 3
 
 //Inicio de juego
 
+
 function iniciarJuego (){
+    let selecionDeAtaques = document.getElementById('ataques')
+    selecionDeAtaques.style.display = 'none'
+
+    let seccionReiniciar = document.getElementById('btn-reinicio')
+    seccionReiniciar.style.display = 'none'
+
     let btn_mascotas = document.getElementById('btn-seleccion')
     btn_mascotas.addEventListener('click',seleccionarMascotas)
 
@@ -29,6 +36,13 @@ function seleccionarMascotas (){
 //Funcion donde seleccion mi mascota
 
 function selectionarMiMascota() {
+    let seccionSeleccionarMiMascota = document.getElementById('seleccion-mascotas')
+    seccionSeleccionarMiMascota.style.display = ' none'
+
+    let selecionDeAtaques = document.getElementById('ataques')
+    selecionDeAtaques.style.display = 'block'
+
+
     let item_charmelon = document.getElementById('charmeleon')
     let item_wartortle = document.getElementById('wartortle')
     let item_diglett = document.getElementById('diglett')
@@ -95,7 +109,6 @@ function combate (){
         crearMensaje("  Empate")
     }else if(ataqueJugador == 'Fuego' && ataqueEnemigo == 'Tierra'){
         crearMensaje("  Ganaste")
-        //Resta vida al enemigo dependiendo el combate y se agrega a al html 
         vidasEnemigo --
         spanVidasEnemigo.innerHTML = vidasEnemigo
     } else if( ataqueJugador == 'Agua' && ataqueEnemigo == 'Fuego'){
@@ -108,7 +121,6 @@ function combate (){
         spanVidasEnemigo.innerHTML = vidasEnemigo
     } else {
         crearMensaje("  Perdiste")
-        //Resta vida al jugador dependiendo el combate y se agrega a al html 
         vidasJugador --
         spanVidasJugador.innerHTML = vidasJugador
     }   
@@ -128,7 +140,6 @@ function mensajeTriunfos(mensajeFinal){
 
     seccionMensaje.appendChild(parrafo)
 }
-//panel visible de ataques seleccionados
 function crearMensaje(resultadoBatalla){
     let seccionMensaje = document.getElementById ('mensaje')
     let parrafo = document.createElement('p')
@@ -136,14 +147,15 @@ function crearMensaje(resultadoBatalla){
 
     seccionMensaje.appendChild(parrafo)
 
-//Bloque de los botones para no poder seguir jugando
     let btn_fuego = document.getElementById('btn-fuego')
     btn_fuego.disabled = true
     let btn_agua = document.getElementById('btn-agua')
     btn_agua.disabled = true
     let btn_tierra = document.getElementById('btn-tierra')
     btn_tierra.disabled = true
-
+    
+    let seccionReiniciar = document.getElementById('btn-reinicio')
+    seccionReiniciar.style.display = 'block'
 }
 function reiniciarJuego(){
     location.reload()

@@ -1,0 +1,48 @@
+body{
+    box-sizing: border-box;
+    margin: 0px;
+    padding: 0px;
+}
+.mokepon{
+    display: flex;
+    margin: 130px 0 0 0;
+    justify-content: center;
+    align-items: center;
+}
+#titulo{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color:#E8F6F3;
+    font-size: 40px;
+}
+#eleccion-mascota{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #F2F3F4;
+}
+.seleccionMascota{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    padding: 10px;
+    height: 600px;
+    width: 500px;
+    background-color:#45B39D;
+    border-radius: 16px;
+    
+}
+.mascotas{
+    display: flex;
+    color: #D6DBDF;
+    font-size: 20px;
+    border: 1px solid red;
+
+   
+}
+img{
+    width: 125px;
+    height: 125px;
+}
+
