@@ -2,47 +2,59 @@ body{
     box-sizing: border-box;
     margin: 0px;
     padding: 0px;
+    background-color:#2E4053;
 }
-.mokepon{
-    display: flex;
-    margin: 130px 0 0 0;
-    justify-content: center;
-    align-items: center;
-}
-#titulo{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color:#E8F6F3;
-    font-size: 40px;
-}
-#eleccion-mascota{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: #F2F3F4;
-}
-.seleccionMascota{
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    padding: 10px;
-    height: 600px;
-    width: 500px;
-    background-color:#45B39D;
-    border-radius: 16px;
-    
-}
-.mascotas{
-    display: flex;
-    color: #D6DBDF;
-    font-size: 20px;
-    border: 1px solid red;
-
-   
-}
-img{
-    width: 125px;
-    height: 125px;
+#seleccionar-mascota {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
+.titulo {
+  color: white;
+  font-size: 32px;
+  font-family: 'Fredoka One', cursive;
+}
+
+.subtitulo {
+  color: white;
+  font-size: 20px;
+}
+
+.tarjetas {
+  display: flex;
+  gap: 10px;
+}
+
+.tarjeta-de-mokepon {
+  width: 280px;
+  height: 150px;
+  background:#45B39D;
+  padding: 10px;
+  box-sizing: border-box;
+  border-radius: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+}
+
+.tarjeta-de-mokepon img {
+  width: 80px;
+}
+
+#boton-mascota {
+  width: 180px;
+  height: 40px;
+  border-radius: 20px;
+  background: #95A5A6  ;
+  border: 2px solid white;
+  color: white;
+  font-family: 'Poppins', sans-serif;
+  margin-top: 30px;
+}
+
+input {
+  display: none;
+}

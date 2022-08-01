@@ -1,51 +1,55 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
+    <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mokepon</title>
-    <link rel="stylesheet" href="./style.css" >
+    <title>Mokepon!</title>
     <script src="./js/mokepon.js"></script>
-    
+    <link rel="stylesheet" href="./style.css">
 </head>
 <body>
-    <section class="mokepon">
-    <section id="seleccion-mascotas" class="seleccionMascota">
-        <h1 id="titulo">Mokepon🔥💧🍃</h1>
-        <h2 id="eleccion-mascota">Elige tu mascota:</h2>
-        <p class="mascotas">
-            <div class="charmeleon">
-                <label for="charmeleon" class="item-mascotas">Charmeleon</label>
-                <input type="radio" name="mokepon" id="charmeleon" >
-                <img src="./imagenes/charmeleon.png" alt="chamerleon">
-            </div>
-            <div class="wartortle">
-                <label for="wartortle" class="item-mascotas">Wartortle</label>
-                <input type="radio" name="mokepon" id="wartortle">
-                <img src="./imagenes/wartortle.png" alt="wartortle">
-            </div>
-            <div class="diglett">
-                <label for="diglett" class="item-mascotas">Diglett</label>
-                <input type="radio" name="mokepon" id="diglett">  
-                <img src="./imagenes/diglett.png" alt="diglett">
-            </div>    
-        </p>
-        <button id="btn-seleccion">Seleccionar</button>
-    </section>
-    <section id="ataques">
-        <h2>Elige tu ataque:</h2>
-        <p>Tu mascota <span id="mascota-jugador"></span> tiene  <span id="vidas-jugador">3</span> vidas </p>
-        <p>La mascota <span id="mascotas-enemigo"></span> del enemigo tiene   <span id="vidas-enemigo">3</span> vidas</p>
-
-        <button id="btn-fuego">Fuego 🔥</button>
-        <button id="btn-agua">Agua 💧</button>
-        <button id="btn-tierra">Tierra🍃</button>
-    </section>
-    <section id="mensaje">
-    </section>
-    <br>
-    <button id="btn-reinicio">Reiniciar</button>
+    <section id="seleccionar-mascota">
+        <h1 class="titulo">Mokepon</h1>
+        <h2 class="subtitulo">Elige tu mascota:</h2>
+        <div class="tarjetas">
+            <label class="tarjeta-de-mokepon" for="charmeleon">
+                <p>Charmeleon</p>
+            <img src="./imagenes/charmeleon.png" alt="Charmeleon">
+            </label>
+            <input type="radio" name="mascota" id="charmeleon" />
+            <label class="tarjeta-de-mokepon" for="wartortle">
+                <p>Wartortle</p>
+            <img src="./imagenes/wartortle.png" alt="Wartortle">
+            </label>
+            <input type="radio" name="mascota" id="wartortle" />
+            <label class="tarjeta-de-mokepon" for="diglett">
+                <p>Diglett</p>
+            <img src="./imagenes/diglett.png" alt="Diglett">
+            </label>
+            <input type="radio" name="mascota" id="diglett" />
+        </div>
+        <button id="boton-mascota">Seleccionar</button>
+        </section>
+            <section id="seleccionar-ataque">
+                <h1 class="titulo">MOKEPON! 🔥💧🍃</h1>
+                <h2>Elige tu ataque:</h2>
+                <div>
+                    <button id="boton-fuego">Fuego 🔥</button>
+                    <button id="boton-agua">Agua 💧</button>
+                    <button id="boton-tierra">Tierra 🍃 </button>
+                </div>
+                <div>
+                    <section id="mensajes">
+                    </section> 
+                    <section id="reiniciar">
+                        <button id="boton-reiniciar">Reiniciar</button>
+                    </section>
+                </div>
+                <div>
+                    <p>Tu mascota <span id="mascota-jugador"></span> tiene <span id="vidas-jugador">3</span> vidas</p>
+                    <p>La mascota <span id="mascota-enemigo"></span> del enemigo tiene <span id="vidas-enemigo">3</span> vidas</p>
+                </div>
     </section>
 </body>
 </html>
