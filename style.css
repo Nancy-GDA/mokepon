@@ -1,4 +1,7 @@
-body{
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inconsolata&family=Raleway:wght@300&display=swap')
+
+;body{
     box-sizing: border-box;
     margin: 0px;
     padding: 0px;
@@ -13,13 +16,14 @@ body{
 
 .titulo {
   color: white;
-  font-size: 32px;
-  font-family: 'Fredoka One', cursive;
+  font-size: 40px;
+  font-family: 'Raleway', sans-serif;
 }
 
 .subtitulo {
   color: white;
-  font-size: 20px;
+  font-size: 28px;
+  font-family: 'Raleway', sans-serif;
 }
 
 .tarjetas {
@@ -38,10 +42,16 @@ body{
   justify-content: center;
   align-items: center;
   color: white;
+  font-family: 'Raleway', sans-serif;
+  font-size: 20px;
+}
+
+.tarjetas input[name='mascota']:checked + .tarjeta-de-mokepon{
+background-color:#99A3A4;
 }
 
 .tarjeta-de-mokepon img {
-  width: 80px;
+  width: 90px;
 }
 
 #boton-mascota {
@@ -51,10 +61,83 @@ body{
   background: #95A5A6  ;
   border: 2px solid white;
   color: white;
-  font-family: 'Poppins', sans-serif;
+  font-size: 18px;
+  font-family: 'Raleway', sans-serif;
+  margin-top: 30px;
+}
+input {
+  display: none;
+}
+.boton-ataques{
+  width: 120px;
+  height: 40px;
+  border-radius: 20px;
+  background: #95A5A6  ;
+  border: 2px solid white;
+  color: white;
+  font-size: 18px;
+  font-family: 'Raleway', sans-serif;
   margin-top: 30px;
 }
 
-input {
-  display: none;
+.mensajes-vidas{
+  display: flex;
+  align-items: flex-start;
+  padding: 10px;
+  width: 450px;
+  height: 150px;
+  border-radius: 20px;
+  color: white;
+  font-size: 18px;
+  font-family: 'Inconsolata', monospace; 
+  gap: 40px;
+}
+.carta-jugador{
+  display: flex;
+  align-items: center;
+  align-content: center;
+  padding: 10px;
+  background-color:#99729C;
+  width: 300px;
+  height: 200px;
+  border-radius: 15px;
+  font-size: 25px;
+}
+.carta-enemigo{
+  display: flex;
+  align-items: center;
+  align-content: center;
+  padding: 10px;
+  background-color:#99729C;
+  width: 300px;
+  height: 200px;
+  border-radius: 15px;
+  font-size: 25px;
+}
+#mensajes{
+  color: white;
+  font-size: 18px;
+  font-family: 'Inconsolata', monospace;
+}
+
+#boton-reiniciar{
+  width: 150px;
+  height: 40px;
+  border-radius: 15px;
+  background: #95A5A6  ;
+  border: 2px solid white;
+  color: white;
+  font-size: 18px;
+  font-family: 'Raleway', sans-serif;
+  margin: 15px 0;
+}
+
+#seleccionar-ataque{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.boton-ataques{
+  margin: 50px 0;
 }
