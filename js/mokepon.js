@@ -47,29 +47,43 @@ seleccionarMascotaEnemigo()
 function seleccionarMascotaEnemigo(){
     let mascotaAleatoria = aleatorio(1,3)
     let spanMascotaEnemigo = document.getElementById('mascota-enemigo')
+
     if(mascotaAleatoria == 1){
         spanMascotaEnemigo.innerHTML='Charmeleon'
     }else if(mascotaAleatoria == 2){
         spanMascotaEnemigo.innerHTML='Wartortle'
-    }else{spanMascotaEnemigo.innerHTML='Diglett'}}
+    }else{
+        spanMascotaEnemigo.innerHTML='Diglett'
+    }
+}
+
 function ataqueFuego(){
     ataqueJugador='FUEGO'
     ataqueAleatorioEnemigo()
 }
+
 function ataqueAgua(){
     ataqueJugador ='AGUA'
     ataqueAleatorioEnemigo()
 }
+
 function ataqueTierra(){
     ataqueJugador ='TIERRA'
-ataqueAleatorioEnemigo()}
+    ataqueAleatorioEnemigo()
+}
+
 function ataqueAleatorioEnemigo(){
     let ataqueAleatorio = aleatorio(1,3)
-    if(ataqueAleatorio == 1){ataqueEnemigo='FUEGO'
-    }else if(ataqueAleatorio == 2){ataqueEnemigo='AGUA'
-    }else{ataqueEnemigo='TIERRA'
+    if(ataqueAleatorio == 1){
+        ataqueEnemigo='FUEGO'
+    }else if(ataqueAleatorio == 2){
+        ataqueEnemigo='AGUA'
+    }else{
+        ataqueEnemigo='TIERRA'
+    }
+    combate()
 }
-combate()}
+
 //Inicia el combate
 function combate(){
     let spanVidasJugador = document.getElementById('vidas-jugador')
@@ -103,10 +117,18 @@ function revisarVidas(){
 }
 function crearMensaje(resultado){
     let sectionMensajes = document.getElementById('mensajes')
-    let parrafo = document.createElement('p')
-    parrafo.innerHTML = 'Tu mascota atacó con '+ataqueJugador+', las mascota del enemigo atacó con '+ataqueEnemigo+'- '+resultado
-    sectionMensajes.appendChild(parrafo)
+    let contenedorResultado = document.createElement('div')
+    contenedorResultado.classList.add('panel-combate')
+    
+    contenedorResultado.innerHTML = `
+        <p class="resultado">${resultado}</p>
+        <p>Tu mascota atacó con ${ataqueJugador} </p>
+        <p>las mascota del enemigo atacó con ${ataqueEnemigo}</p>
+    `
+
+    sectionMensajes.appendChild(contenedorResultado)
 }
+
 function crearMensajeFinal(resultadoFinal){
     let sectionMensajes = document.getElementById('mensajes')
     let parrafo =  document.createElement('p')
