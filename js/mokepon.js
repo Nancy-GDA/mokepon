@@ -25,6 +25,7 @@ function iniciarJuego(){
     botonReiniciar.addEventListener('click',reiniciarJuego)
 }
 //Se selecciona el mokepon que se desea usar para jugar
+
 function seleccionarMascotaJugador(){
     let sectionSeleccionarMascota = document.getElementById('seleccionar-mascota')
     sectionSeleccionarMascota.style.display='none'
@@ -85,13 +86,14 @@ function ataqueAleatorioEnemigo(){
 }
 
 //Inicia el combate
+
 function combate(){
     let spanVidasJugador = document.getElementById('vidas-jugador')
     let spanVidasEnemigo = document.getElementById('vidas-enemigo')
     if(ataqueEnemigo == ataqueJugador){
         crearMensaje("EMPATE")
-    }else if(ataqueJugador =='FUEGO'&&ataqueEnemigo == 'TIERRA'){
-        crearMensaje("GANASTE")
+    }else if(ataqueJugador =='FUEGO '&&ataqueEnemigo == 'TIERRA'){
+        crearMensaje("GANASTE ")
         vidasEnemigo--
         spanVidasEnemigo.innerHTML = vidasEnemigo
     }else if(ataqueJugador =='AGUA'&&ataqueEnemigo == 'FUEGO'){
@@ -121,9 +123,9 @@ function crearMensaje(resultado){
     contenedorResultado.classList.add('panel-combate')
     
     contenedorResultado.innerHTML = `
-        <p class="resultado">${resultado}</p>
-        <p>Tu mascota atacó con ${ataqueJugador} </p>
-        <p>las mascota del enemigo atacó con ${ataqueEnemigo}</p>
+        <p class="resultado">${resultado}  </p> 
+        <p class="tuMascota">Tu mascota atacó con  ${ataqueJugador}  </p>
+        <p class="mascotaEnemigo">La mascota del enemigo atacó con  ${ataqueEnemigo} </p>
     `
 
     sectionMensajes.appendChild(contenedorResultado)
@@ -134,6 +136,7 @@ function crearMensajeFinal(resultadoFinal){
     let parrafo =  document.createElement('p')
     parrafo.innerHTML = resultadoFinal
     sectionMensajes.appendChild(parrafo)
+
 //se crean los ataques y se desabilitan los botones
     let botonFuego = document.getElementById('boton-fuego')
     botonFuego.disabled = true

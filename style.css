@@ -1,7 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@300&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Inconsolata&family=Raleway:wght@300&display=swap')
-
-;body{
+@import url('https://fonts.googleapis.com/css2?family=Bitter:wght@200&family=Inconsolata&family=Raleway:wght@300&display=swap');
+body{
     box-sizing: border-box;
     margin: 0px;
     padding: 0px;
@@ -14,6 +12,7 @@
   align-items: center;
 }
 
+/*Seccion de titlos de seleccion de mascota*/
 .titulo {
   color: white;
   font-size: 40px;
@@ -26,6 +25,7 @@
   font-family: 'Raleway', sans-serif;
 }
 
+/*Estilos de tarjetas de pokemones*/
 .tarjetas {
   display: flex;
   gap: 10px;
@@ -62,24 +62,35 @@ background-color:#99A3A4;
   border: 2px solid white;
   color: white;
   font-size: 18px;
-  font-family: 'Raleway', sans-serif;
+  font-family: 'Inconsolata', monospace;
   margin-top: 30px;
 }
 input {
   display: none;
 }
 .boton-ataques{
+
   width: 120px;
   height: 40px;
   border-radius: 20px;
   background: #95A5A6  ;
-  border: 2px solid white;
+  border: 2px solid #95A5A6 ;
   color: white;
   font-size: 18px;
   font-family: 'Raleway', sans-serif;
   margin-top: 30px;
 }
 
+.btn-ataques{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 0 40px 0;
+  width: 500px;
+  gap:20px;
+}
+
+/*Estilos de mensaja de vidas */
 .mensajes-vidas{
   display: flex;
   align-items: flex-start;
@@ -97,7 +108,8 @@ input {
   align-items: center;
   align-content: center;
   padding: 10px;
-  background-color:#99729C;
+  color: white;
+  background: #73C6B6;
   width: 300px;
   height: 200px;
   border-radius: 15px;
@@ -106,21 +118,30 @@ input {
 .carta-enemigo{
   display: flex;
   align-items: center;
-  align-content: center;
+  color: white;
   padding: 10px;
-  background-color:#99729C;
+  background:#E6B0AA ;
   width: 300px;
   height: 200px;
   border-radius: 15px;
   font-size: 25px;
 }
 #mensajes{
-  color: white;
+  display: grid;
+  
+  align-content: center;
+  height: auto;
+  justify-content: center;
+  grid-template-columns: 300px 150px ;
+  gap: 20px;
   font-size: 18px;
   font-family: 'Inconsolata', monospace;
 }
 
 #boton-reiniciar{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   width: 150px;
   height: 40px;
   border-radius: 15px;
@@ -128,7 +149,7 @@ input {
   border: 2px solid white;
   color: white;
   font-size: 18px;
-  font-family: 'Raleway', sans-serif;
+  font-family: 'Inconsolata', monospace;
   margin: 15px 0;
 }
 
@@ -138,10 +159,21 @@ input {
   justify-content: center;
   align-items: center;
 }
-.boton-ataques{
-  margin: 50px 0;
+
+/* Estilos de panel de combates */
+.panel-combate{
+  padding: 10px;
+  width: 250px;
+  height: 150px;
+  border-radius: 15px;
+  background: linear-gradient(#A3E4D7,#E6B0AA) ;
+  color: white;
+  font-family: 'Inconsolata', monospace;
+  font-weight: 600;
+}
+.reiniciar{
+  display: flex;
+  justify-content: center;
+  align-content: center;
 }
 
-.panel-combate{
- border: 2px azure solid; 
-}
