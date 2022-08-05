@@ -1,10 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Bitter:wght@200&family=Inconsolata&family=Raleway:wght@300&display=swap');
-body{
-    box-sizing: border-box;
-    margin: 0px;
-    padding: 0px;
-    background-color:#2E4053;
+
+body {
+  background-color: #2E405F;
 }
+
 #seleccionar-mascota {
   display: flex;
   flex-direction: column;
@@ -12,34 +11,27 @@ body{
   align-items: center;
 }
 
-/*Seccion de titlos de seleccion de mascota*/
 .titulo {
   color: white;
   font-size: 35px;
-  font-family: 'Raleway', sans-serif;
+  font-family: 'Raleway', sans-serif
 }
 
 .subtitulo {
   color: white;
   font-size: 24px;
-  font-family: 'Raleway', sans-serif;
+  font-family: 'Raleway', sans-serif
 }
 
-/*Estilos de tarjetas de pokemones*/
-.tarjetas {
+.tarjetas, .tarjetas-ataques {
   display: flex;
   gap: 10px;
 }
 
-@media (max-width:360px){
-  .tarjetas{
-    flex-direction: column;
-  }
-}
 .tarjeta-de-mokepon {
   width: 280px;
   height: 150px;
-  background:#45B39D;
+  background: #73C6B6;
   padding: 10px;
   box-sizing: border-box;
   border-radius: 20px;
@@ -47,12 +39,6 @@ body{
   justify-content: center;
   align-items: center;
   color: white;
-  font-family: 'Raleway', sans-serif;
-  font-size: 20px;
-}
-
-.tarjetas input[name='mascota']:checked + .tarjeta-de-mokepon{
-background-color:#99A3A4;
 }
 
 .tarjeta-de-mokepon img {
@@ -74,130 +60,97 @@ background-color:#99A3A4;
 input {
   display: none;
 }
-.boton-ataques{
 
-  width: 120px;
-  height: 40px;
-  border-radius: 20px;
-  background: #95A5A6  ;
-  border: 2px solid #95A5A6 ;
-  color: white;
-  font-size: 18px;
-  font-family: 'Raleway', sans-serif;
-  margin-top: 30px;
+input:checked + label {
+  background-color: #99a3a4;
 }
 
-.btn-ataques{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 0 0 40px 0;
-  width: 500px;
-  gap:20px;
-}
-@media (max-width:360px){
-  .btn-ataques{
-    flex-direction: column;
-    gap: 7px;
-  }
-
-/*Estilos de mensaja de vidas */
-.mensajes-vidas{
-  display: flex;
-  align-items: flex-start;
-  padding: 10px;
-  width: 450px;
-  height: 150px;
-  border-radius: 20px;
-  color: white;
-  font-size: 18px;
-  font-family: 'Inconsolata', monospace; 
-  gap: 40px;
-}
-@media (max-width:360px){
-  .mensajes-vidas{
-    flex-direction: column;
-
-  }
-}
-.carta-jugador{
-  display: flex;
-  align-items: center;
-  align-content: center;
-  padding: 10px;
-  color: white;
-  background: #73C6B6;
-  width: 300px;
-  height: 200px;
-  border-radius: 15px;
-  font-size: 25px;
-}
-
-.carta-enemigo{
-  display: flex;
-  align-items: center;
-  color: white;
-  padding: 10px;
-  background:#E6B0AA ;
-  width: 300px;
-  height: 200px;
-  border-radius: 15px;
-  font-size: 25px;
-}
-#mensajes{
-  display: grid;
-  align-content: center;
-  height: auto;
-  justify-content: center;
-  grid-template-columns: 300px 150px ;
-  gap: 20px;
-  font-size: 18px;
-  font-family: 'Inconsolata', monospace;
-}
-
-@media (max-width:360px){
-  #mensaje{
-    display: flex;
-    flex-direction: column;
-  }
-}
-#boton-reiniciar{
+#seleccionar-ataque {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  width: 150px;
+  align-items: center;
+  
+}
+
+.boton-ataques {
+  background-color: #99a3a4;
+  padding: 10px;
+  box-sizing: border-box;
+  border-radius: 20px;
+  border-color: transparent;
+  width: 180px;
+  color: white;
+  font-size: 18px;
+  font-family: 'Poppins', sans-serif;
+}
+
+#mensajes {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  width: 280px;
+  color: white;
+  font-size: 30px;
+  background: linear-gradient(#e6b0aa,#73c6b6);
+  padding: 20px;
+  margin-top: 20px;
+  border-radius: 20px;
+  
+}
+
+#boton-reiniciar {
+  width: 180px;
   height: 40px;
-  border-radius: 15px;
+  border-radius: 20px;
   background: #95A5A6  ;
   border: 2px solid white;
   color: white;
   font-size: 18px;
   font-family: 'Inconsolata', monospace;
-  margin: 15px 0;
+  margin-top: 30px;
 }
 
-#seleccionar-ataque{
+.boton reinicio{
+  display: flex;
+  justify-content: center;
+}
+.ataques {
+  display: grid;
+  grid-template-columns: 150px 150px;
+  color: white;
+  gap: 35px;
+}
+
+#vidas-jugador, #vidas-enemigo {
+  font-size: 32px;
+  margin-bottom: 0;
+}
+
+@media (max-width: 360px) {
+  .tarjetas, .tarjetas-ataques {
+    flex-direction: column;
+  }
+}
+.carta-jugador{
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-}
-
-/* Estilos de panel de combates */
-.panel-combate{
-  padding: 10px;
-  width: 250px;
-  height: 150px;
+  margin: 20px 20px 10px 0;
+  width: 150px;
+  height: 110px;
+  background-color:#73c6b6 ;
   border-radius: 15px;
-  background: linear-gradient(#A3E4D7,#E6B0AA) ;
-  color: white;
-  font-family: 'Inconsolata', monospace;
-  font-weight: 600;
 }
 
-.reiniciar{
+.carta-enemigo{
   display: flex;
+  flex-direction: column;
   justify-content: center;
-  align-content: center;
+  align-items: center;
+  margin: 20px 20px 10px 0;
+  width: 150px;
+  height: 110px;
+  background-color:#e6b0aa ;
+  border-radius: 15px;
 }
-
