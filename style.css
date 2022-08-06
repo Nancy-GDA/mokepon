@@ -1,5 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Bitter:wght@200&family=Inconsolata&family=Raleway:wght@300&display=swap');
 
+p{
+  margin: 0;
+  padding: 0;
+}
+
 body {
   background-color: #2E405F;
 }
@@ -41,6 +46,7 @@ body {
   color: white;
 }
 
+
 .tarjeta-de-mokepon img {
   width: 90px;
 }
@@ -72,6 +78,15 @@ input:checked + label {
   
 }
 
+.ataques {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  color: white;
+  gap: 35px;
+  width: 35%;
+  margin: auto;
+}
+
 .boton-ataques {
   background-color: #99a3a4;
   padding: 10px;
@@ -86,16 +101,15 @@ input:checked + label {
 
 #mensajes {
   display: flex;
+  justify-content: center;
   align-items: center;
-  flex-direction: column;
-  width: 280px;
+  width: 300px;
   color: white;
   font-size: 30px;
   background: linear-gradient(#e6b0aa,#73c6b6);
   padding: 20px;
   margin-top: 20px;
   border-radius: 20px;
-  
 }
 
 #boton-reiniciar {
@@ -110,37 +124,28 @@ input:checked + label {
   margin-top: 30px;
 }
 
-.boton reinicio{
+#reiniciar{
   display: flex;
   justify-content: center;
 }
-.ataques {
-  display: grid;
-  grid-template-columns: 150px 150px;
-  color: white;
-  gap: 35px;
-}
 
 #vidas-jugador, #vidas-enemigo {
+
   font-size: 32px;
   margin-bottom: 0;
 }
 
-@media (max-width: 360px) {
-  .tarjetas, .tarjetas-ataques {
-    flex-direction: column;
-  }
-}
 .carta-jugador{
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   margin: 20px 20px 10px 0;
-  width: 150px;
-  height: 110px;
+  width: 100%;
+  height: 130px;
   background-color:#73c6b6 ;
   border-radius: 15px;
+  gap: 10px;
 }
 
 .carta-enemigo{
@@ -149,8 +154,38 @@ input:checked + label {
   justify-content: center;
   align-items: center;
   margin: 20px 20px 10px 0;
-  width: 150px;
-  height: 110px;
+  width: 100%;
+  height: 130px;
   background-color:#e6b0aa ;
   border-radius: 15px;
+  gap: 10px;
+}
+
+
+@media (max-width: 360px) {
+    .tarjeta-de-mokepon{
+      width: 240px;
+      height: 120px;
+    }
+
+    .boton-ataques{
+      display:flex ;
+      flex-direction: column;
+      align-items: center;
+      margin: 13px 0;
+    }
+
+  #mensajes{
+    width: 220px;
+    font-size: 20px;
+  }
+
+  .tarjetas, .tarjetas-ataques {
+    flex-direction: column;
+  }
+
+  .ataques{
+    width: 85%;
+  }
+
 }
