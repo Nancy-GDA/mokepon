@@ -7,26 +7,34 @@ export function aleatorio(min, max) {
     return Math.floor(Math.random() * (max - min + 1) + min)
 }
 
-export function seleccionarMascotaJugador() {
-    debugger
-    const inputCharmeleon = document.getElementById('charmeleon')
-    const inputWartortle = document.getElementById('wartortle')
-    const inputDiglett = document.getElementById('diglett')
-
+export function seleccionarMascotaJugador(listaMascota) {
+    const encotrado = seEncontroMokepon(listaMascota)
+/*Dependiendo el valor que traiga la funcion seEncontroMokepon ve se ejecuta
+la condicional if y muestra el alert y frena la ejecucion*/
+    if(encotrado == false){
+        alert('Selecciona Mascota')
+        return 
+    }
+console.log(listaMascota)
     sectionSeleccionarMascota.style.display = 'none'
     sectionSeleccionarAtaque.style.display = 'flex'
     
-    if (inputCharmeleon.checked) {
-        spanMascotaJugador.innerHTML = 'Charmeleon'
-    } else if (inputWartortle.checked) {
-        spanMascotaJugador.innerHTML = 'Warlotle'
-    } else if (inputDiglett.checked) {
-        spanMascotaJugador.innerHTML = 'Diglett'
-    } else {
-        alert('Selecciona una mascota')
-    }
-
     seleccionarMascotaEnemigo()
+}
+
+ function seEncontroMokepon (arregloMascotas){
+    //traego mi arreglo como obejto y su elemento que es mokepon 
+    for (const mascota of arregloMascotas) {
+        //mando llamar el id del elemento html y el atributo nombre 
+        const elementoMokepon = document.querySelector(`#${mascota.nombre.toLowerCase()}`)
+        //verifico que este chequeado uno a uno y paro hasta donde lo este 
+        if(elementoMokepon.checked){
+            mascota.setChecked = true
+            return true
+        }
+    }
+    return false
+
 }
 
 function seleccionarMascotaEnemigo() {

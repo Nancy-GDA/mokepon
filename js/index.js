@@ -24,10 +24,12 @@ let vidasJugador = 3
 let vidasEnemigo = 3
 
 function iniciarJuego() {
-    listadoMascotas()
+    const mascotaMoquepon = listadoMascotas()
 
     sectionSeleccionarAtaque.style.display = 'none'
-    botonMascotaJugador.addEventListener('click', seleccionarMascotaJugador)
+    botonMascotaJugador.addEventListener('click', function (){
+        seleccionarMascotaJugador(mascotaMoquepon)
+    }) 
 
     botonFuego.addEventListener('click', ataqueFuego)
     botonAgua.addEventListener('click', ataqueAgua)
@@ -46,10 +48,9 @@ function listadoMascotas(){
     ]
 
     mascotas.forEach(crearTarjetaMokepon)
+    return mascotas
 
 }
-
-
 
 function crearTarjetaMokepon(mokepon){
     //se crea estructura html y se asocia a una variable 
