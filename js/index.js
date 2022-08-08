@@ -6,6 +6,7 @@ import seleccionarMascotaJugador, { aleatorio } from "./seleccionMascotas.js"
 const sectionSeleccionarAtaque = document.getElementById('seleccionar-ataque')
 const sectionReiniciar = document.getElementById('reiniciar')
 const botonMascotaJugador = document.getElementById('boton-mascota')
+
 const botonTierra = document.getElementById('boton-tierra')
 sectionReiniciar.style.display = 'none'
 const botonFuego = document.getElementById('boton-fuego')
@@ -35,18 +36,72 @@ function iniciarJuego() {
         mokepon.ataques.forEach(crearAtaques)
     }) 
 
-    // botonFuego.addEventListener('click', ataqueFuego)
-    // botonAgua.addEventListener('click', ataqueAgua)
-    // botonTierra.addEventListener('click', ataqueTierra)
     // botonReiniciar.addEventListener('click', reiniciarJuego)
     
 }
 
+const ataqueCharmander = [
+    {
+        nombre: 'Rafaga',
+        tipo: 'Fuego 🔥'
+    },
+    {
+        nombre: 'Evaporacion',
+        tipo: 'Fuego 🔥'
+    },
+    {
+        nombre: 'Bofeton lodo',
+        tipo:'Tierra 🍃'
+    },
+    {
+        nombre: 'Pistola de agua ',
+        tipo:'Agua 💧'
+    }
+]
+const ataqueWartortle = [
+    {
+        nombre: 'Tecno shock',
+        tipo:'Agua 💧'
+    },
+    {
+        nombre: 'Plancha voladora',
+        tipo:'Agua 💧'
+    },
+    {
+        nombre: 'V de fuego',
+        tipo: 'Fuego 🔥'
+    },
+    {
+        nombre: 'Semilladora',
+        tipo:'Tierra 🍃'
+    }
+]
+const ataqueDiglett = [
+    {
+        nombre: 'Bofeton lodo',
+        tipo:'Tierra 🍃'
+    },
+    {
+        nombre: 'Terremoto',
+        tipo:'Tierra 🍃'
+    },
+    {
+        nombre: 'Sofoco ',
+        tipo:'Fuego 🔥'
+    },
+    {
+        nombre: 'Surf  ',
+        tipo:'Agua 💧'
+    }
+]
+
+let ataque = [ataqueCharmander,ataqueWartortle,ataqueDiglett]
+
 function listadoMascotas(){
     const mascotas = [
-        new Mokepones ('Charmeleon', ['Fuego', 'Agua'], './imagenes/charmeleon.png'), 
-        new Mokepones ('Wartortle', ['Agua'], './imagenes/wartortle.png'), 
-        new Mokepones ('Diglett', ['Tierra'], 'imagenes/diglett.png'),
+        new Mokepones ('Charmeleon', ataqueCharmander, './imagenes/charmeleon.png'), 
+        new Mokepones ('Wartortle', ataqueWartortle, './imagenes/wartortle.png'), 
+        new Mokepones ('Diglett', ataqueDiglett, 'imagenes/diglett.png'),
         new Mokepones ('Hipodoge', ['Fuergo', 'Tierra'], 'imagenes/default.jpeg')
     ]
 
@@ -55,11 +110,8 @@ function listadoMascotas(){
 
 }
 
-
-
-
 function ataqueFuego() {
-    ataqueJugador = 'FUEGO 🔥'
+    ataqueJugador = 'Fuego'
     ataqueAleatorioEnemigo()
 }
 function ataqueAgua() {
@@ -72,7 +124,7 @@ function ataqueTierra() {
 }
 
 function ataqueAleatorioEnemigo() {
-    let ataqueAleatorio = aleatorio(1,3)
+    let ataqueAleatorio = aleatorio(max)
     
     if (ataqueAleatorio == 1) {
         ataqueEnemigo = 'FUEGO 🔥'

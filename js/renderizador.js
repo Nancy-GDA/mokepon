@@ -1,6 +1,9 @@
 export function crearAtaques(ataque){
     const botonAtaque = `
-    <button class="boton-ataques" id="${ataque} " >${ataque}</button>
+    <button class="boton-ataques" id="${ataque.nombre} " >
+        ${ataque.nombre} <br />
+        <span> ${ataque.tipo}</span>
+    </button>
     `
     const contenedorAtaques = document.querySelector('#ataques')
     contenedorAtaques.innerHTML = `
