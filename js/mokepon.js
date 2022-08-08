@@ -1,7 +1,7 @@
 class Mokepones{
-    constructor(nombre, ataque, imagen, vidas = 3){
+    constructor(nombre, ataques, imagen, vidas = 3){
         this.nombre = nombre
-        this.ataque = ataque
+        this.ataques = ataques
         this.vidas = vidas
         this.imagen = imagen 
         this.checked = false

@@ -3,50 +3,48 @@ const spanMascotaJugador = document.getElementById('mascota-jugador')
 const spanMascotaEnemigo = document.getElementById('mascota-enemigo')
 const sectionSeleccionarAtaque = document.getElementById('seleccionar-ataque')
 
-export function aleatorio(min, max) {
+export function aleatorio(max) {
+    const min = 0
     return Math.floor(Math.random() * (max - min + 1) + min)
 }
 
-export function seleccionarMascotaJugador(listaMascota) {
-    const encotrado = seEncontroMokepon(listaMascota)
+export function seleccionarMascotaJugador(listaMascotas) {
+    const encotrado = seEncontroMokepon(listaMascotas)
 /*Dependiendo el valor que traiga la funcion seEncontroMokepon ve se ejecuta
 la condicional if y muestra el alert y frena la ejecucion*/
     if(encotrado == false){
         alert('Selecciona Mascota')
         return 
     }
-console.log(listaMascota)
+
     sectionSeleccionarMascota.style.display = 'none'
     sectionSeleccionarAtaque.style.display = 'flex'
     
-    seleccionarMascotaEnemigo()
+    seleccionarMascotaEnemigo(listaMascotas)
+    return encotrado
 }
 
  function seEncontroMokepon (arregloMascotas){
     //traego mi arreglo como obejto y su elemento que es mokepon 
+    
     for (const mascota of arregloMascotas) {
         //mando llamar el id del elemento html y el atributo nombre 
         const elementoMokepon = document.querySelector(`#${mascota.nombre.toLowerCase()}`)
         //verifico que este chequeado uno a uno y paro hasta donde lo este 
         if(elementoMokepon.checked){
             mascota.setChecked = true
-            return true
+            spanMascotaJugador.innerText = mascota.nombre
+            return mascota
         }
+
     }
     return false
 
 }
 
-function seleccionarMascotaEnemigo() {
-    let mascotaAleatoria = aleatorio(1,3)
-
-    if (mascotaAleatoria == 1) {
-        spanMascotaEnemigo.innerHTML = 'Charmeleon'
-    } else if (mascotaAleatoria == 2) {
-        spanMascotaEnemigo.innerHTML = 'Warlotle'
-    } else {
-        spanMascotaEnemigo.innerHTML = 'Diglett'
-    }
+function seleccionarMascotaEnemigo(listadoMascotas) {
+    let mascotaAleatoria = aleatorio(listadoMascotas.length - 1)
+    spanMascotaEnemigo.innerHTML = listadoMascotas[mascotaAleatoria].nombre
 }
 
 

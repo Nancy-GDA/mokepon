@@ -1,5 +1,8 @@
+import { crearAtaques , crearTarjetaMokepon} from "./renderizador.js"
 import Mokepones from "./mokepon.js"
 import seleccionarMascotaJugador, { aleatorio } from "./seleccionMascotas.js" 
+
+
 const sectionSeleccionarAtaque = document.getElementById('seleccionar-ataque')
 const sectionReiniciar = document.getElementById('reiniciar')
 const botonMascotaJugador = document.getElementById('boton-mascota')
@@ -28,18 +31,18 @@ function iniciarJuego() {
 
     sectionSeleccionarAtaque.style.display = 'none'
     botonMascotaJugador.addEventListener('click', function (){
-        seleccionarMascotaJugador(mascotaMoquepon)
+        const mokepon = seleccionarMascotaJugador(mascotaMoquepon)
+        mokepon.ataques.forEach(crearAtaques)
     }) 
 
-    botonFuego.addEventListener('click', ataqueFuego)
-    botonAgua.addEventListener('click', ataqueAgua)
-    botonTierra.addEventListener('click', ataqueTierra)
-    botonReiniciar.addEventListener('click', reiniciarJuego)
+    // botonFuego.addEventListener('click', ataqueFuego)
+    // botonAgua.addEventListener('click', ataqueAgua)
+    // botonTierra.addEventListener('click', ataqueTierra)
+    // botonReiniciar.addEventListener('click', reiniciarJuego)
     
 }
 
 function listadoMascotas(){
-
     const mascotas = [
         new Mokepones ('Charmeleon', ['Fuego', 'Agua'], './imagenes/charmeleon.png'), 
         new Mokepones ('Wartortle', ['Agua'], './imagenes/wartortle.png'), 
@@ -52,23 +55,7 @@ function listadoMascotas(){
 
 }
 
-function crearTarjetaMokepon(mokepon){
-    //se crea estructura html y se asocia a una variable 
-    const  estructuraTarjeta = `
-            <input  type="radio" name="mascota" id="${mokepon.nombre.toLowerCase()}" />
-            <label class="tarjeta-de-mokepon" for="${mokepon.nombre.toLowerCase()}">
-                <p>${mokepon.nombre}</p>
-                <img src="${mokepon.imagen}" alt="${mokepon.nombre}">
-            </label>
-        `
-    //Creo variable que toma el selector de html como valor
-    let elementoTarjetas = document.querySelector('.tarjetas')
-    //inyecto al html lo que tengo como parametro en mi funcion y creo otro elemento 
-    elementoTarjetas.innerHTML = `
-            ${elementoTarjetas.innerHTML} 
-            ${estructuraTarjeta}
-        `
-}
+
 
 
 function ataqueFuego() {
