@@ -1,7 +1,7 @@
 import { crearAtaques , crearTarjetaMokepon} from "./renderizador.js"
 import Mokepones from "./mokepon.js"
 import seleccionarMascotaJugador, { aleatorio } from "./seleccionMascotas.js" 
-
+import { ataqueCharmander,ataqueDiglett,ataqueWartortle, lanzarAtaque} from "./ataquesMokepon.js"
 
 const sectionSeleccionarAtaque = document.getElementById('seleccionar-ataque')
 const sectionReiniciar = document.getElementById('reiniciar')
@@ -33,82 +33,28 @@ function iniciarJuego() {
     sectionSeleccionarAtaque.style.display = 'none'
     botonMascotaJugador.addEventListener('click', function (){
         const mokepon = seleccionarMascotaJugador(mascotaMoquepon)
-        mokepon.ataques.forEach(crearAtaques)
+        mokepon.ataques.forEach(function(ataque){
+            crearAtaques(ataque,mokepon)
+        })
+    
     }) 
-
     // botonReiniciar.addEventListener('click', reiniciarJuego)
     
 }
-
-const ataqueCharmander = [
-    {
-        nombre: 'Rafaga',
-        tipo: 'Fuego 🔥'
-    },
-    {
-        nombre: 'Evaporacion',
-        tipo: 'Fuego 🔥'
-    },
-    {
-        nombre: 'Bofeton lodo',
-        tipo:'Tierra 🍃'
-    },
-    {
-        nombre: 'Pistola de agua ',
-        tipo:'Agua 💧'
-    }
-]
-const ataqueWartortle = [
-    {
-        nombre: 'Tecno shock',
-        tipo:'Agua 💧'
-    },
-    {
-        nombre: 'Plancha voladora',
-        tipo:'Agua 💧'
-    },
-    {
-        nombre: 'V de fuego',
-        tipo: 'Fuego 🔥'
-    },
-    {
-        nombre: 'Semilladora',
-        tipo:'Tierra 🍃'
-    }
-]
-const ataqueDiglett = [
-    {
-        nombre: 'Bofeton lodo',
-        tipo:'Tierra 🍃'
-    },
-    {
-        nombre: 'Terremoto',
-        tipo:'Tierra 🍃'
-    },
-    {
-        nombre: 'Sofoco ',
-        tipo:'Fuego 🔥'
-    },
-    {
-        nombre: 'Surf  ',
-        tipo:'Agua 💧'
-    }
-]
-
-let ataque = [ataqueCharmander,ataqueWartortle,ataqueDiglett]
 
 function listadoMascotas(){
     const mascotas = [
         new Mokepones ('Charmeleon', ataqueCharmander, './imagenes/charmeleon.png'), 
         new Mokepones ('Wartortle', ataqueWartortle, './imagenes/wartortle.png'), 
         new Mokepones ('Diglett', ataqueDiglett, 'imagenes/diglett.png'),
-        new Mokepones ('Hipodoge', ['Fuergo', 'Tierra'], 'imagenes/default.jpeg')
+        new Mokepones ('Hipodoge', ataqueDiglett, 'imagenes/default.jpeg')
     ]
 
     mascotas.forEach(crearTarjetaMokepon)
     return mascotas
 
 }
+
 
 function ataqueFuego() {
     ataqueJugador = 'Fuego'

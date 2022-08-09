@@ -14,6 +14,7 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  
 }
 
 .titulo {
@@ -44,6 +45,8 @@ body {
   justify-content: center;
   align-items: center;
   color: white;
+  font-size: 19px;
+  cursor:pointer ;
 }
 
 
@@ -61,6 +64,7 @@ body {
   font-size: 18px;
   font-family: 'Inconsolata', monospace;
   margin-top: 30px;
+  cursor: pointer;
 }
 
 input {
@@ -97,6 +101,7 @@ input:checked + label {
   color: white;
   font-size: 18px;
   font-family: 'Poppins', sans-serif;
+  cursor:pointer;
 }
 
 #mensajes {

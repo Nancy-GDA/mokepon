@@ -1,6 +1,8 @@
-export function crearAtaques(ataque){
+import { lanzarAtaque } from "./ataquesMokepon.js"
+
+export function crearAtaques(ataque,mokepon){
     const botonAtaque = `
-    <button class="boton-ataques" id="${ataque.nombre} " >
+    <button class="boton-ataques" id="${ataque.id}" >
         ${ataque.nombre} <br />
         <span> ${ataque.tipo}</span>
     </button>
@@ -10,7 +12,11 @@ export function crearAtaques(ataque){
         ${contenedorAtaques.innerHTML}
         ${botonAtaque}
     `
+    setTimeout(()=>{
+        lanzarAtaque(ataque,mokepon)
+    },300)
 }
+
 
 export function crearTarjetaMokepon(mokepon){
     //se crea estructura html y se asocia a una variable 
