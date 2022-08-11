@@ -1,6 +1,6 @@
 import { lanzarAtaque } from "./ataquesMokepon.js"
 
-export function crearAtaques(ataque,mokepon){
+export function crearAtaques(ataque, mokepon, mokeponEnemigo){
     const botonAtaque = `
     <button class="boton-ataques" id="${ataque.id}" >
         ${ataque.nombre} <br />
@@ -13,8 +13,9 @@ export function crearAtaques(ataque,mokepon){
         ${botonAtaque}
     `
     setTimeout(()=>{
-        lanzarAtaque(ataque,mokepon)
+        lanzarAtaque(ataque, mokepon, mokeponEnemigo)
     },300)
+    
 }
 
 

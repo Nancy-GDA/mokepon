@@ -1,3 +1,4 @@
+import { aleatorio } from "./seleccionMascotas.js"
 class Mokepones{
     constructor(nombre, ataques, imagen, vidas = 3){
         this.nombre = nombre
@@ -16,7 +17,14 @@ class Mokepones{
     }
 
     atacar (ataque,tipoAtaque){
-        alert(`Soy el ataque ${ataque} y mi tipo es ${tipoAtaque}`)
+        alert(`Mokepon ${this.nombre} ataco con ${ataque} y mi tipo es ${tipoAtaque}`)
+    }
+
+    danoRecibido(mokeponEnemigo) {
+        const indice = aleatorio(mokeponEnemigo.ataques.length - 1)
+        const ataque = mokeponEnemigo.ataques[indice]
+        alert(`Recibi el ataque ${ataque.nombre} y el tipo es ${ataque.tipo}, del Mokepon ${mokeponEnemigo.nombre}`)
+        return ataque.tipo
     }
 }
 

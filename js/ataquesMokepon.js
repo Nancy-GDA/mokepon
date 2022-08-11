@@ -1,3 +1,5 @@
+import combate from "./generarCombate.js"
+
 export const ataqueCharmander = [
     {
         id:'rafaga',
@@ -20,6 +22,7 @@ export const ataqueCharmander = [
         tipo:'Agua 💧'
     }
 ]
+
 export const ataqueWartortle = [
     {
         id:'tecnoShock',
@@ -67,8 +70,10 @@ export const ataqueDiglett = [
     }
 ]
 
-export function lanzarAtaque(ataque,mokepon){
+export function lanzarAtaque(ataque, mokepon, mokeponEnemigo){
     document.querySelector(`#${ataque.id}`).addEventListener('click', () =>{
       mokepon.atacar(ataque.nombre,ataque.tipo)
+      const ataqueEnemigo = mokepon.danoRecibido(mokeponEnemigo)
+      combate(ataque.tipo, ataqueEnemigo)
     })
 }
