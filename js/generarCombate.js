@@ -5,33 +5,33 @@ const sectionMensajes = document.getElementById('resultado')
 
 const ataquesDelJugador = document.getElementById('ataques-del-jugador')
 const ataquesDelEnemigo = document.getElementById('ataques-del-enemigo')
+const sectionReiniciar = document.getElementById('reiniciar')
 
-let vidasJugador = 3
-let vidasEnemigo = 3
+export default function combate(miMokepon, mokeponEnemigo) {
+    const ataqueEnemigo = mokeponEnemigo.ultimoAtaque.tipo
+    const miAtaque = miMokepon.ultimoAtaque.tipo
 
-export default function combate(ataqueJugador, ataqueEnemigo) {
-
-    if(ataqueEnemigo == ataqueJugador) {
-        crearMensaje("EMPATE", ataqueEnemigo, ataqueJugador)
-    } else if(ataqueJugador == 'FUEGO 🔥' && ataqueEnemigo == 'TIERRA 🍃') {
-        crearMensaje("GANASTE 🎉 🎊", ataqueEnemigo, ataqueJugador)
-        vidasEnemigo--
-        spanVidasEnemigo.innerHTML = vidasEnemigo
-    } else if(ataqueJugador == 'AGUA 💧' && ataqueEnemigo == 'FUEGO 🔥') {
-        crearMensaje("GANASTE 🎉 🎊", ataqueEnemigo, ataqueJugador)
-        vidasEnemigo--
-        spanVidasEnemigo.innerHTML = vidasEnemigo
-    } else if(ataqueJugador == 'TIERRA 🍃' && ataqueEnemigo == 'AGUA 💧') {
-        crearMensaje("GANASTE 🎉 🎊", ataqueEnemigo, ataqueJugador)
-        vidasEnemigo--
-        spanVidasEnemigo.innerHTML = vidasEnemigo
+    if(ataqueEnemigo == miAtaque) {
+        crearMensaje("EMPATE", miMokepon, mokeponEnemigo)
+    } else if(miAtaque == 'Fuego 🔥' && ataqueEnemigo == 'Tierra 🍃') {
+        crearMensaje("GANASTE 🎉 🎊", miMokepon, mokeponEnemigo)
+        mokeponEnemigo.restarVidas()
+        spanVidasEnemigo.innerHTML = mokeponEnemigo.vidas
+    } else if(miAtaque  == 'Agua 💧' && ataqueEnemigo == 'Fuego 🔥') {
+        crearMensaje("GANASTE 🎉 🎊", miMokepon, mokeponEnemigo)
+        mokeponEnemigo.restarVidas()
+        spanVidasEnemigo.innerHTML = mokeponEnemigo.vidas
+    } else if(miAtaque == 'Tierra 🍃' && ataqueEnemigo == 'Agua 💧') {
+        crearMensaje("GANASTE 🎉 🎊", miMokepon, mokeponEnemigo)
+        mokeponEnemigo.restarVidas()
+        spanVidasEnemigo.innerHTML = mokeponEnemigo.vidas
     } else {
-        crearMensaje("PERDISTE 😔 ☹️", ataqueEnemigo, ataqueJugador)
-        vidasJugador--
-        spanVidasJugador.innerHTML = vidasJugador
+        crearMensaje("PERDISTE 😔 ☹️", miMokepon, mokeponEnemigo)
+        miMokepon.restarVidas()
+        spanVidasJugador.innerHTML = miMokepon.vidas
     }
 
-    revisarVidas(vidasEnemigo, vidasJugador)
+    revisarVidas(mokeponEnemigo.vidas, miMokepon.vidas)
 }
 
 function revisarVidas(vidasEnemigo, vidasJugador) {
@@ -42,19 +42,29 @@ function revisarVidas(vidasEnemigo, vidasJugador) {
     }
 }
 
-function crearMensaje(resultado, ataqueEnemigo, ataqueJugador) {
-
+function crearMensaje(resultado, miMokepon, mokeponEnemigo) {
+    let mensaje1 = ''
+    let mensaje2 = ''
     sectionMensajes.innerHTML = resultado
 
-    ataquesDelJugador.innerText = ataqueJugador
-    ataquesDelEnemigo.innerText = ataqueEnemigo
+    miMokepon.tipoAtaque.forEach(ataque => {
+        mensaje1 = `${mensaje1} ${ataque.ataque} (${ataque.tipo}) \n`
+    })
+
+    mokeponEnemigo.tipoAtaque.forEach(ataque => {
+        mensaje2 = `${mensaje2} ${ataque.ataque} (${ataque.tipo}) \n`
+    })
+
+    ataquesDelJugador.innerText = mensaje1
+    ataquesDelEnemigo.innerText = mensaje2
+    
 }
 
-function crearMensajeFinal(resultadoFinal) { 
+function crearMensajeFinal(resultadoFinal) {
     sectionMensajes.innerHTML = resultadoFinal
+    document.querySelectorAll('.boton-ataques').forEach(function(elemento) {
+        elemento.disabled = true
+    })
 
-    // botonFuego.disabled = true
-    // botonAgua.disabled = true
-    // botonTierra.disabled = true
     sectionReiniciar.style.display = 'flex'
 }

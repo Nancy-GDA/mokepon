@@ -1,5 +1,8 @@
 import { lanzarAtaque } from "./ataquesMokepon.js"
 
+const spanVidasJugador = document.querySelector('#vidas-jugador')
+const spanVidasEnemigo = document.querySelector('#vidas-enemigo')
+
 export function crearAtaques(ataque, mokepon, mokeponEnemigo){
     const botonAtaque = `
     <button class="boton-ataques" id="${ataque.id}" >
@@ -12,6 +15,10 @@ export function crearAtaques(ataque, mokepon, mokeponEnemigo){
         ${contenedorAtaques.innerHTML}
         ${botonAtaque}
     `
+
+    spanVidasJugador.innerText = mokepon.vidas
+    spanVidasEnemigo.innerText = mokeponEnemigo.vidas
+    
     setTimeout(()=>{
         lanzarAtaque(ataque, mokepon, mokeponEnemigo)
     },300)

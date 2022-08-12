@@ -1,4 +1,5 @@
 import combate from "./generarCombate.js"
+import { aleatorio } from "./seleccionMascotas.js"
 
 export const ataqueCharmander = [
     {
@@ -70,10 +71,16 @@ export const ataqueDiglett = [
     }
 ]
 
+function ataqueEnemigo (mokeponEnemigo) {
+    const indice = aleatorio(mokeponEnemigo.ataques.length - 1)
+    const ataque = mokeponEnemigo.ataques[indice]
+    mokeponEnemigo.atacar(ataque.nombre, ataque.tipo)
+}
 export function lanzarAtaque(ataque, mokepon, mokeponEnemigo){
-    document.querySelector(`#${ataque.id}`).addEventListener('click', () =>{
-      mokepon.atacar(ataque.nombre,ataque.tipo)
-      const ataqueEnemigo = mokepon.danoRecibido(mokeponEnemigo)
-      combate(ataque.tipo, ataqueEnemigo)
+    document.querySelector(`#${ataque.id}`).addEventListener('click', () => {
+        mokepon.atacar(ataque.nombre, ataque.tipo)
+        ataqueEnemigo(mokeponEnemigo)
+
+        combate(mokepon, mokeponEnemigo)
     })
 }

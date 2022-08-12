@@ -3,17 +3,12 @@ import Mokepones from "./mokepon.js"
 import seleccionarMascotaJugador from "./seleccionMascotas.js" 
 import { ataqueCharmander,ataqueDiglett,ataqueWartortle } from "./ataquesMokepon.js"
 
-const sectionSeleccionarAtaque = document.getElementById('seleccionar-ataque')
-const sectionReiniciar = document.getElementById('reiniciar')
 const botonMascotaJugador = document.getElementById('boton-mascota')
-
-sectionReiniciar.style.display = 'none'
 const botonReiniciar = document.getElementById('boton-reiniciar')
 
 function iniciarJuego() {
     const mascotaMokepon = listadoMokepon()
 
-    sectionSeleccionarAtaque.style.display = 'none'
     botonMascotaJugador.addEventListener('click', function (){
         const mascotasMokepon = seleccionarMascotaJugador(mascotaMokepon)
         mascotasMokepon.miMascota.ataques.forEach(function(ataque){
@@ -21,7 +16,8 @@ function iniciarJuego() {
         })
     
     }) 
-    // botonReiniciar.addEventListener('click', reiniciarJuego)    
+    
+    botonReiniciar.addEventListener('click', reiniciarJuego)    
 }
 
 function listadoMokepon(){

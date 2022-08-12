@@ -5,6 +5,7 @@ const spanMascotaJugador = document.getElementById('mascota-jugador')
 const spanMascotaEnemigo = document.getElementById('mascota-enemigo')
 const sectionSeleccionarAtaque = document.getElementById('seleccionar-ataque')
 
+
 export function aleatorio(max) {
     const min = 0
     return Math.floor(Math.random() * (max - min + 1) + min)
