@@ -70,6 +70,30 @@ export const ataqueDiglett = [
         tipo:'Agua 💧'
     }
 ]
+export const ataquePikachu = [
+    {
+        id:'hierbaLazo',
+        nombre: 'Hierba Lazo',
+        tipo:'Tierra 🍃'
+    },
+    {
+        id:'sacredFirePlus',
+        nombre: 'Sacred Fire Plus',
+        tipo:'Fuego 🔥'
+    },
+    {
+        
+        id:'ascuas',
+        nombre: 'SofocAscuaso',
+        tipo:'Fuego 🔥'
+    },
+    {
+        id:'hidrocanon',
+        nombre: 'Hidrocañon',
+        tipo:'Agua 💧'
+    }
+]
+
 
 function ataqueEnemigo (mokeponEnemigo) {
     const indice = aleatorio(mokeponEnemigo.ataques.length - 1)
