@@ -13,7 +13,6 @@ class Mokepones{
     set setChecked (checked){
         this.checked = checked
     }
-
     get ultimoAtaque(){
         return this.tipoAtaque[this.tipoAtaque.length - 1]
     }
